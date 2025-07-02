@@ -1,0 +1,134 @@
+/* MyChats.css */
+
+.my-chats {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.my-chats h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ffffffcc;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.chat-preview {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  color: #fff;
+}
+
+.chat-preview:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+s
+.my-chats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  border-bottom: 1px solid #444;
+}
+
+.create-group-btn {
+   background-color: #38b2ac;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+}
+
+.my-chats-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px;
+  padding: 1rem;
+}
+
+.create-group-btn:hover {
+  background-color: #319795;
+}
+
+.my-chats-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.create-group-btn {
+  background-color: #38b2ac;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.create-group-btn:hover {
+  background-color: #2f9c95;
+}
+
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chat-item {
+  color: black;
+  padding: 0.8rem;
+  background: #f5f5f7;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-item:hover {
+  background: #d0d0d0;
+}
+
+.chat-item.selected {
+  background: #38b2ac;
+  color: white;
+}
+
+.chat-title {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
+
+.chat-message {
+  font-size: 0.85rem;
+  color: inherit;
+}
+
+/* Responsive handling */
+.mobile-hide {
+  display: none;
+}
+

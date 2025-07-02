@@ -1,0 +1,88 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #1e1e2f;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.modal-content input[type="text"] {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: none;
+  margin: 0.5rem 0;
+  background: #2c2c3a;
+  color: white;
+}
+
+.search-section input {
+  background: #2c2c3a;
+  color: white;
+}
+
+.selected-users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+.selected-users span {
+  background: #3b3b5f;
+  padding: 0.4rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.search-results {
+  margin-top: 1rem;
+  text-align: left;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.search-results div {
+  padding: 0.6rem;
+  border-radius: 6px;
+  background: #2f2f42;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.search-results div:hover {
+  background: #44445f;
+}
+
+.create-btn {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  background: #38b2ac;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.create-btn:hover {
+  background: #319795;
+}

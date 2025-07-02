@@ -1,0 +1,73 @@
+body {
+  background-color: #f0f0f0; /* Light grey background for contrast */
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.homepage-title {
+  font-size: 2rem;            /* Bigger font */
+  font-weight: 600;           /* Semi-bold */
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', sans-serif; /* Cleaner font */
+  color: #333;                /* Slightly softer black */
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.homepage-container {
+  width: 90%;
+  max-width: 500px; /* wider form */
+  max-height: fit-content;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 20px 24px; /* reduced padding = lower height */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+/* Optional: limit max height and make scrollable if needed */
+.homepage-container-content {
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+
+.header h1 {
+  text-align: center;
+  color: #000;          /* Black heading */
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  background: #eaeaea;
+  border: none;
+  border-bottom: 2px solid transparent;
+  font-size: 16px;
+  transition: 0.3s;
+  color: #000;           /* Black text */
+}
+
+.tabs button.active {
+  background: #fff;
+  border-bottom: 2px solid #007bff;
+  font-weight: bold;
+  color: #000;
+}
+
+.content {
+  padding: 10px;
+  color: #000;
+}

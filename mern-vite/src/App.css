@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+.App{
+    min-height: 100vh;
+    display: flex;
+    background-image: url('./dark-blue-product-background_53876-92801.avif');
+    background-size: cover;
+    background-position: center;
+}

@@ -1,0 +1,129 @@
+/* SideDrawer.css */
+
+.top-bar {
+  position: relative;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.search-wrapper {
+  margin-left: 20px;
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: -38px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-wrapper input {
+  padding: 0.5rem 1rem;
+  padding-left: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  outline: none;
+  width: 180px;
+}
+
+.app-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+}
+
+.profile-pic {
+  margin-right: 5px;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.dropdown-arrow {
+  font-size: 0.9rem;
+  color: white;
+  margin-right: 4px;
+  transition: transform 0.2s ease;
+}
+
+.profile-container:hover .dropdown-arrow {
+  transform: rotate(180deg); /* Optional hover effect */
+}
+
+.profile-dropdown-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  font-size: 1rem;
+  color: white;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: rgba(40, 40, 40, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 150px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  transition: background 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Optional animation */
+.fade-in {
+  animation: fadeInDropdown 0.2s ease-out forwards;
+  transform-origin: top right;
+  opacity: 0;
+}
+
+@keyframes fadeInDropdown {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
