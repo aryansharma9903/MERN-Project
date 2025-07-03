@@ -4,8 +4,7 @@ import React, { useState } from 'react'
 import './GroupChatModal.css';
 import { useDisclosure } from '@chakra-ui/react';
 
-const GroupChatModal = ({ children }) => {
-    const {isOpen, onOpen, onClose} = useDisclosure();
+const GroupChatModal = ({ children, isOpen, onClose}) => {
     const [groupName, setGroupName] = useState();
     const [selectedUsers, setSelectedUsers] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -48,17 +47,41 @@ const GroupChatModal = ({ children }) => {
         setSelectedUsers(selectedUsers.filter((u) => u._id !== userId));
     };
 
-    const handleCreate = () => {
-        if (!groupName || selectedUsers.length === 0){
-            console.error('add 2 or more users to create a group');
-            return;
-        }
-        onCreate({ groupName, users: selectedUsers });
+    const handleCreate = async () => {
+    if (!groupName || selectedUsers.length === 0) {
+        alert('Group name and at least one user required');
+        return;
+    }
+
+    try {
+        const config = {
+        headers: {
+            Authorization: `Bearer ${user.token}`,
+        },
+        };
+
+        const { data } = await axios.post(
+        '/api/chat/group',
+        {
+            name: groupName,
+            users: JSON.stringify(selectedUsers.map((u) => u._id)),
+        }, config
+        );
+
+        // Update the chat list
+        setChats([data, ...chats]);
+
+        // Reset modal state
         setGroupName('');
         setSelectedUsers([]);
         setSearchTerm('');
         setSearchResults([]);
+
         onClose();
+        alert('New Group Chat Created');
+    } catch (error) {
+        alert('Failed to create group:', error);
+    }
     };
 
    return (

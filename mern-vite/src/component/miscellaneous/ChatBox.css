@@ -1,88 +1,44 @@
-/* ChatBox.css */
-
-.chat-box {
-  flex: 1;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.chat-header {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: #ffffffcc;
-}
-
-.messages {
-  flex: 1;
-  overflow-y: auto;
-  margin-bottom: 1rem;
-  padding-right: 0.5rem;
-}
-
-.message {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 0.7rem 1rem;
-  border-radius: 16px;
-  margin-bottom: 0.5rem;
-  width: fit-content;
-  max-width: 80%;
-  color: #fff;
-}
-
-.message.me {
-  align-self: flex-end;
-  background-color: #1f4068;
-}
-
-.message.other {
-  align-self: flex-start;
-  background-color: #3a506b;
-}
-
-.input-container {
+.chat-header-bar {
   display: flex;
   align-items: center;
-  gap: 1rem;
-}
-
-.input-container input {
-  flex: 1;
-  padding: 0.7rem 1rem;
-  border-radius: 25px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  outline: none;
-}
-
-.input-container button {
+  justify-content: center;
+  position: relative;
+  padding: 1rem;
   background-color: #1f4068;
   color: white;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background 0.2s ease;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.input-container button:hover {
-  background-color: #3a506b;
+.chat-box-text {
+  color: #ffffffcc;
+  font-weight: 400;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-top: 21rem;
 }
 
+/* ← Arrow Button */
 .back-btn {
+  position: absolute;
+  left: 1rem;
   background: transparent;
   border: none;
+  font-size: 1.5rem;
   color: white;
-  font-size: 1rem;
-  margin-bottom: 1rem;
   cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Centered Chat Title */
+.chat-title {
+  margin: 0 auto;
+  text-align: center;
 }

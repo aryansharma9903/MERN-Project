@@ -31,23 +31,30 @@
   overflow-y: auto;
 }
 
+/* Utility classes */
+.mobile-hide {
+  display: none !important;
+}
+
+.mobile-show {
+  display: flex !important;
+  flex-direction: column;
+}
+
 /* Mobile layout */
 @media screen and (max-width: 768px) {
   .chat-container {
     flex-direction: column;
     padding: 0.5rem;
+    gap: 0.5rem;
   }
 
   .chat-left,
   .chat-right {
     width: 100%;
-  }
-
-  .mobile-hide {
-    display: none;
-  }
-
-  .mobile-show {
-    display: block;
+    min-width: 100%;
+    border-radius: 8px;
+    overflow-y: auto;
+    flex: 1;
   }
 }

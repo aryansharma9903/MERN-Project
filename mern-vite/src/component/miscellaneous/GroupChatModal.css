@@ -8,81 +8,90 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  z-index: 1000;
 }
 
 .modal-content {
-  background: #1e1e2f;
-  color: white;
+  background: white;
+  color: #333;
   padding: 2rem;
-  border-radius: 12px;
-  width: 400px;
-  max-width: 90%;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
   text-align: center;
-  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #222;
 }
 
 .modal-content input[type="text"] {
   width: 100%;
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: none;
-  margin: 0.5rem 0;
-  background: #2c2c3a;
-  color: white;
-}
-
-.search-section input {
-  background: #2c2c3a;
-  color: white;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 .selected-users {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 0.5rem;
-  margin-top: 1rem;
-  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .selected-users span {
-  background: #3b3b5f;
-  padding: 0.4rem 0.7rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  background-color: #edf2f7;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  color: #333;
   cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.selected-users span:hover {
+  background-color: #e2e8f0;
 }
 
 .search-results {
-  margin-top: 1rem;
-  text-align: left;
   max-height: 150px;
   overflow-y: auto;
+  text-align: left;
+  margin-bottom: 1rem;
 }
 
 .search-results div {
-  padding: 0.6rem;
+  padding: 10px;
+  background-color: #f7fafc;
+  margin-bottom: 6px;
   border-radius: 6px;
-  background: #2f2f42;
-  margin-bottom: 0.5rem;
   cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .search-results div:hover {
-  background: #44445f;
+  background-color: #e2e8f0;
 }
 
 .create-btn {
-  margin-top: 1.5rem;
-  padding: 0.6rem 1.5rem;
-  background: #38b2ac;
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #3182ce;
   color: white;
+  font-size: 1rem;
+  font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
 .create-btn:hover {
-  background: #319795;
+  background-color: #2b6cb0;
 }

@@ -6,11 +6,13 @@ import ChatLoading from "./ChatLoading";
 import { getSender } from "../../config/ChatLogic";
 import GroupChatModal from "./GroupChatModal";
 
-const MyChats = () => {
+const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
   const [isCreatingGroup, setIsCreatingGroup] = useState(false);
-  const [isOpen, setIsOpen] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isMobile = window.innerWidth <= 768;
 
   const fetchChats = async () => {
     if (!user) return;
@@ -30,27 +32,18 @@ const MyChats = () => {
   };
 
   useEffect(() => {
-    setLoggedUser(JSON.parse(localStorage.getItem('userInfo')));
+    setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
-  }, [user]);
+  }, [user, fetchAgain]);
 
-  const handleCreateGroup = () => {
-    // TODO: Show a modal or navigate to group creation
-    setIsCreatingGroup(true);
-    alert("Open Create Group Chat Modal"); // You’ll replace this later
-  };
-
-   return (
-    <div
-      className={`my-chats-wrapper ${
-        window.innerWidth <= 768 && selectedChat ? "mobile-hide" : ""
-      }`}
-    >
+  return (
+    <div className={`my-chats-wrapper ${isMobile && selectedChat ? "hide-on-mobile" : ""}`}>
       <div className="my-chats-header">
         <h2>MY CHATS</h2>
-          <GroupChatModal >
-          <button className="create-group-btn" onClick={GroupChatModal}>+ New Group Chat</button>
-          </GroupChatModal>
+        {isOpen && <GroupChatModal isOpen={isOpen} onClose={() => setIsOpen(false)} />}
+        <button className="create-group-btn" onClick={() => setIsOpen(true)}>
+          + New Group Chat
+        </button>
       </div>
 
       <div className="chat-list">
@@ -58,15 +51,11 @@ const MyChats = () => {
           chats.map((chat) => (
             <div
               key={chat._id}
-              className={`chat-item ${
-                selectedChat?._id === chat._id ? "selected" : ""
-              }`}
+              className={`chat-item ${selectedChat?._id === chat._id ? "selected" : ""}`}
               onClick={() => setSelectedChat(chat)}
             >
               <div className="chat-title">
-                {!chat.isGroupChat
-                  ? getSender(loggedUser, chat.users)
-                  : chat.chatName}
+                {!chat.isGroupChat ? getSender(loggedUser, chat.users) : chat.chatName}
               </div>
               {chat.latestMessage && (
                 <div className="chat-message">
