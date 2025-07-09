@@ -1,4 +1,4 @@
-import { ChatState } from '@/Context/chatProvider'
+import { ChatState } from '../../Context/chatProvider'
 import React from 'react'
 
 const SingleChat = ( {fetchAgain, setFetchAgain} ) => {
