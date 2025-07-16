@@ -2,7 +2,7 @@ import React from 'react';
 import './ProfileModal.css';
 
 const ProfileModal = ({ isOpen, onClose, user }) => {
-  if (!isOpen) return null;
+  if (!isOpen || !user ) return null;
 
   return (
     <div className="modal-overlay" onClick={onClose}>

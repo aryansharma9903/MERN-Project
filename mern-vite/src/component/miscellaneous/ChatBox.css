@@ -1,3 +1,21 @@
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  position: relative;
+}
+
+.chat-box-text {
+  font-size: x-large;
+  text-align: center;
+ padding-top: 35vh;
+}
+
+/* Header */
 .chat-header-bar {
   display: flex;
   align-items: center;
@@ -11,15 +29,13 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.chat-box-text {
-  color: #ffffffcc;
-  font-weight: 400;
-  font-size: 1.4rem;
+.chat-title {
   text-align: center;
-  padding-top: 21rem;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-/* ← Arrow Button */
+/* Back button left */
 .back-btn {
   position: absolute;
   left: 1rem;
@@ -28,17 +44,53 @@
   font-size: 1.5rem;
   color: white;
   cursor: pointer;
-  padding: 0;
-  line-height: 1;
-  transition: transform 0.2s ease;
 }
 
-.back-btn:hover {
-  transform: scale(1.2);
+/* Eye button right */
+.eye-btn {
+  position: absolute;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  color: #ffffffcc;
+  cursor: pointer;
 }
 
-/* Centered Chat Title */
-.chat-title {
-  margin: 0 auto;
-  text-align: center;
+/* Middle message area */
+.boxx {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input area at bottom */
+.chat-message {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  gap: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #1f4068;
+}
+
+.chat-message input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 25px;
+  border: none;
+  background: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.chat-message button {
+  padding: 0.6rem 1.2rem;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
 }

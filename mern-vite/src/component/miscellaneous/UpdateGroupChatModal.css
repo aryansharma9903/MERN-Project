@@ -1,0 +1,154 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  color: #1a202c;
+  padding: 2rem;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  font-family: "Segoe UI", sans-serif;
+  position: relative;
+}
+
+.modal-content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #2d3748;
+  text-align: center;
+}
+
+/* Selected users section */
+.group-top-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.selected-users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.selected-users span {
+  background-color: #3182ce;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.selected-users span:hover {
+  background-color: #2b6cb0;
+}
+
+/* Input + Update button row */
+.input-button-row {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.input-button-row input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.input-button-row button {
+  height: 50px;
+  padding: 0.6rem 1rem;
+  background-color: #3182ce;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.input-button-row button:hover {
+  background-color: #2b6cb0;
+}
+
+.search-result {
+  color: white;
+  background-color: #2d3748;
+  padding: 8px 12px;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-result:hover {
+  background-color: #4a5568;
+}
+
+/* Add users input (full width) */
+.modal-content input[type="text"]:not(.input-button-row input) {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  margin: 0.8rem 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Leave group button */
+.modal-content button.leave-btn {
+  background-color: #3182ce;
+  color: white;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-content button.leave-btn:hover {
+  background-color: #2b6cb0;
+}
+
+/* Close button */
+.modal-close-btn {
+  margin-top: 1rem;
+  background-color: #e53e3e;
+  color: white;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-close-btn:hover {
+  background-color: #c53030;
+}
