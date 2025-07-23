@@ -59,7 +59,7 @@ const ChatBox = ( {fetchAgain, setFetchAgain} ) => {
 
         {/* Chat UI body */}
         <div className="boxx">
-          <SingleChat fetchAgain={fetchAgain} setbut FetchAgain={setFetchAgain} />
+          <SingleChat fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
         </div>
       </div>
 

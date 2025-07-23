@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Login from '../component/Login';
 import Signup from '../component/Signup';
-import './Homepage.css'; // Optional: for styling
-import { useNavigate } from 'react-router-dom';
+import './Homepage.css';
 
 const Homepage = () => {
-  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('login');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('userInfo'));
-
-    if(user) navigate('/chats');
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    if (userInfo) navigate("/chats");
   }, [navigate]);
 
   return (
     <div className="homepage-container">
-      <div className="header">
+      <header className="header">
         <h1 className="homepage-title">Welcome to Chat App</h1>
-      </div>
+      </header>
 
       <div className="tabs">
         <button

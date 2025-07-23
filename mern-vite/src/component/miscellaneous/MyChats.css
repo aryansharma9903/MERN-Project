@@ -97,6 +97,7 @@ s
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  max-height: 100vh; /* Add this line */
 }
 
 .chat-item {
@@ -124,8 +125,17 @@ s
 
 .chat-message {
   font-size: 0.85rem;
-  color: inherit;
+  color: white;          /* Dark gray text */
+  background-color: white;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
 
 /* Responsive handling */
 .mobile-hide {

@@ -7,7 +7,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate();  //
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,12 +32,9 @@ const Login = () => {
         config
       );
 
-      alert("Login Successful");
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-
       navigate("/chats");
-
     } catch (error) {
       const message = error?.response?.data?.message || "Invalid email or password";
       alert(`Login failed: ${message}`);
@@ -47,7 +44,6 @@ const Login = () => {
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
-
       <div className="form-group">
         <label>Email</label>
         <input

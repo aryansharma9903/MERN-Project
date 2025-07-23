@@ -1,3 +1,5 @@
+import http from 'http';
+import { Server } from 'socket.io';
 import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
@@ -30,6 +32,48 @@ app.use('/api/message', messageRoutes);
 app.use(notFound)
 app.use(errorHandler)
 
-const PORT = process.env.PORT
-app.listen(5000, () => {
-    console.log('server is started on port 5000'.yellow.bold)});
+const server = http.createServer(app);
+
+const io = new Server(server, {
+  pingTimeout: 60000,
+  cors: {
+    origin: "http://localhost:5173",
+    credentials: true,
+  },
+});
+
+io.on("connection", (socket) => {
+  console.log("⚡ New client connected");
+
+  // When user opens chat app
+  socket.on("setup", (userData) => {
+    socket.join(userData._id); // Join user-specific room
+    socket.emit("connected");
+  });
+
+  // When user enters a specific chat
+  socket.on("join chat", (room) => {
+    socket.join(room); // Join chat room
+    console.log("User joined room:", room);
+  });
+
+  // When user sends a new message
+  socket.on("new message", (newMessageReceived) => {
+    const chat = newMessageReceived.chat;
+    if (!chat.users) return console.log("chat.users not defined");
+
+    chat.users.forEach((user) => {
+      if (user._id === newMessageReceived.sender._id) return;
+      socket.in(user._id).emit("message received", newMessageReceived);
+    });
+  });
+
+  socket.on("disconnect", () => {
+    console.log("❌ Client disconnected");
+  });
+});
+
+const PORT = process.env.PORT || 5000;
+server.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`.yellow.bold);
+});

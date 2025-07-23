@@ -11,6 +11,8 @@ const MyChats = ({ fetchAgain }) => {
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
   const [isCreatingGroup, setIsCreatingGroup] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState();
 
   const isMobile = window.innerWidth <= 768;
 
