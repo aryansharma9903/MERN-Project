@@ -1,5 +1,5 @@
 import React from 'react';
-import './LogoutModal.css';
+import './LogOutModal.css';
 
 const LogoutModal = ({ isOpen, onClose, onLogout }) => {
   if (!isOpen) return null;
