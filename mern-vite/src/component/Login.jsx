@@ -28,7 +28,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API_BASE}/api/user/login`,
+        `${import.meta.env.VITE_API_BASE}/api/user/login`,
         { email, password },
         config
       );
@@ -37,7 +37,7 @@ const Login = () => {
       setLoading(false);
       navigate("/chats");
     } catch (error) {
-      const message = error?.response?.data?.message || "Invalid email or password";
+      const message = error?.response?.data?.message || error.message
       alert(`Login failed: ${message}`);
       setLoading(false);
     }
