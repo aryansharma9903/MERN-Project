@@ -14,13 +14,8 @@ const app = express();
 dotenv.config();
 connectDB();
 
-const allowedOrigins = [
-  'http://localhost:5173', // for local dev
-  'https://mern-chat-app-six-smoky.vercel.app' // replace with your actual frontend URL
-];
-
 app.use(cors({
-  origin: allowedOrigins,
+  origin: ["https://mern-chat-app-six-smoky.vercel.app"],
   credentials: true,
 }));
 
@@ -42,7 +37,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   pingTimeout: 60000,
   cors: {
-    origin: allowedOrigins,
+    origin: ["https://mern-chat-app-six-smoky.vercel.app"],
     credentials: true,
   },
 });
