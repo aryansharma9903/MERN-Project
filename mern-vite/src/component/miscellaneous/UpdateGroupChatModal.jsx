@@ -22,7 +22,7 @@ const UpdateGroupChatModal = ( {fetchAgain, setFetchAgain, isOpen, onClose} ) =>
                     Authorization: `Bearer ${user.token}`,
                 }
             }
-            const {data} = await axios.put('/api/chat/groupremove', {
+            const {data} = await axios.put('https://mern-project-ksi2.onrender.com/api/chat/groupremove', {
                 chatId: selectedChat._id,
                 userId: user1._id
             }, config)
@@ -55,7 +55,7 @@ const UpdateGroupChatModal = ( {fetchAgain, setFetchAgain, isOpen, onClose} ) =>
                 Authorization: `Bearer ${user.token}`,
             }
         }
-        const {data} = await axios.put('/api/chat/groupadd', {
+        const {data} = await axios.put('https://mern-project-ksi2.onrender.com/api/chat/groupadd', {
             chatId: selectedChat._id,
             userId: user1._id
         }, config)
@@ -76,7 +76,7 @@ const UpdateGroupChatModal = ( {fetchAgain, setFetchAgain, isOpen, onClose} ) =>
                 Authorization: `Bearer ${user.token}`,
             }
         }
-        const { data } = await axios.put('/api/chat/rename', {
+        const { data } = await axios.put('https://mern-project-ksi2.onrender.com/api/chat/rename', {
             chatId: selectedChat._id,
             chatName: groupChatName,
             }, config
@@ -103,7 +103,7 @@ const UpdateGroupChatModal = ( {fetchAgain, setFetchAgain, isOpen, onClose} ) =>
             }
         }
 
-        const {data} = await axios.get(`/api/user?search=${query}`, config);
+        const {data} = await axios.get(`https://mern-project-ksi2.onrender.com/api/user?search=${query}`, config);
         setSearchResult(data);
     } catch (error) {
         alert('Error Occured');

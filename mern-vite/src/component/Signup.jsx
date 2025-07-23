@@ -37,7 +37,7 @@ const Signup = () => {
         },
       };
 
-      const { data } = await axios.post('/api/user', {name,email,password, image, mobile}, config);
+      const { data } = await axios.post('https://mern-project-ksi2.onrender.com/api/user', {name,email,password, image, mobile}, config);
       alert("Registration Successfull");
 
       localStorage.setItem('userInfo', JSON.stringify(data));

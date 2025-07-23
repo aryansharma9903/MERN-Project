@@ -12,7 +12,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [socketConnected, setSocketConnected] = useState(false);
-  const messagesEndRef = useRef(null); // 👈 Ref for auto scroll
+  const messagesEndRef = useRef(null); 
 
   // Scroll to bottom when messages change
   useEffect(() => {
@@ -39,7 +39,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             Authorization: `Bearer ${user.token}`,
           },
         };
-        const { data } = await axios.get(`/api/message/${selectedChat._id}`, config);
+        const { data } = await axios.get(`https://mern-project-ksi2.onrender.com/api/message/${selectedChat._id}`, config);
         setMessages(data);
         socket.emit('join chat', selectedChat._id);
         selectedChatCompare = selectedChat;
@@ -82,7 +82,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       };
 
       const { data } = await axios.post(
-        '/api/message',
+        'https://mern-project-ksi2.onrender.com/api/message',
         {
           content: newMessage,
           chatId: selectedChat._id,
@@ -111,7 +111,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             </span>
           </div>
         ))}
-        <div ref={messagesEndRef} /> {/* 👈 This is the scroll target */}
+        <div ref={messagesEndRef} /> 
       </div>
 
       <div className="message-input">

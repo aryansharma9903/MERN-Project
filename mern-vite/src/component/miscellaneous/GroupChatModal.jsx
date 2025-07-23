@@ -27,7 +27,7 @@ const GroupChatModal = ({ children, isOpen, onClose}) => {
                 }
             };
 
-            const {data} = await axios.get(`/api/user?search=${searchTerm}`, config);
+            const {data} = await axios.get(`https://mern-project-ksi2.onrender.com/api/user?search=${searchTerm}`, config);
             console.log(data);
             setLoading(false);
             setSearchResults(data);
@@ -61,7 +61,7 @@ const GroupChatModal = ({ children, isOpen, onClose}) => {
         };
 
         const { data } = await axios.post(
-        '/api/chat/group',
+        'https://mern-project-ksi2.onrender.com/api/chat/group',
         {
             name: groupName,
             users: JSON.stringify(selectedUsers.map((u) => u._id)),

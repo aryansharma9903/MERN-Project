@@ -49,7 +49,7 @@ const SideDrawer = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.get(`/api/user?search=${search}`, config);
+      const { data } = await axios.get(`https://mern-project-ksi2.onrender.com/api/user?search=${search}`, config);
       setSearchResult(data);
     } catch (error) {
       console.error('Error while searching:', error);
@@ -67,7 +67,7 @@ const SideDrawer = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post('/api/chat', { userId }, config);
+      const { data } = await axios.post('https://mern-project-ksi2.onrender.com/api/chat', { userId }, config);
 
       // You can update chats here if needed
       console.log('Chat opened:', data);
