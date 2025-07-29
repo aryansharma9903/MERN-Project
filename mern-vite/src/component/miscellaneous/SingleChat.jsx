@@ -4,8 +4,8 @@ import './SingleChat.css';
 import axios from 'axios';
 import io from 'socket.io-client';
 
-const ENDPOINT = 'http://localhost:5000';
-let socket, selectedChatCompare;
+const ENDPOINT = 'https://mern-project-ksi2.onrender.com';
+let socket;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const { user, selectedChat } = ChatState();
@@ -13,6 +13,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const [newMessage, setNewMessage] = useState('');
   const [socketConnected, setSocketConnected] = useState(false);
   const messagesEndRef = useRef(null); 
+  const selectedChatCompareRef = useRef();
 
   // Scroll to bottom when messages change
   useEffect(() => {
@@ -23,7 +24,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   // Connect to socket on mount
   useEffect(() => {
-    socket = io(ENDPOINT);
+    socket = io(ENDPOINT, {
+      transports: ['websocket'],
+    });
     socket.emit('setup', user);
     socket.on('connected', () => setSocketConnected(true));
   }, []);
@@ -42,7 +45,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         const { data } = await axios.get(`https://mern-project-ksi2.onrender.com/api/message/${selectedChat._id}`, config);
         setMessages(data);
         socket.emit('join chat', selectedChat._id);
-        selectedChatCompare = selectedChat;
+        selectedChatCompareRef.current = selectedChat;
       } catch (error) {
         console.error('Failed to load messages', error);
       }
@@ -55,8 +58,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   useEffect(() => {
     socket.on('message received', (newMessageReceived) => {
       if (
-        !selectedChatCompare ||
-        selectedChatCompare._id !== newMessageReceived.chat._id
+        !selectedChatCompareRef.current || selectedChatCompareRef.current._id !== newMessageReceived.chat._id
       ) {
         // optionally show notification
       } else {

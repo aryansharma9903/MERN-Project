@@ -2,12 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import '../component/Login.css';
+import { ChatState } from "../Context/chatProvider.jsx";
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const { setUser } = ChatState();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -35,6 +36,7 @@ const Login = () => {
 
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
+      setUser(data);
       navigate("/chats");
     } catch (error) {
       const message = error?.response?.data?.message || error.message
